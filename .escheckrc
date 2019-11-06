@@ -1,0 +1,5 @@
+{
+  "ecmaVersion": "es5",
+  "module": true,
+  "files": "public/dist/bundle.js"
+}
