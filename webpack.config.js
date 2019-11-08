@@ -1,7 +1,6 @@
 const path = require('path');
 const glob = require('glob');
 
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -19,12 +18,14 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 
 module.exports = {
-  entry        : [ "@babel/polyfill" , "./src/js/main.ts" ],
+  target: 'web',
+  entry:  {
+    main: [ "@babel/polyfill" , "./src/app.ts" ],
+  },
   output       : {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public/dist')
   },
-
 
   optimization: {
       minimize: true,
@@ -35,7 +36,8 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "./src/index.html"
+      template: "./src/index.html",
+      excludeChunks: [ 'server' ]
     }),
     new MiniCssExtractPlugin({
       filename: './css/style.css',
@@ -93,7 +95,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [ '.ts',  '.js' ]
+    extensions: ['.ts', '.js', '.json']
   },
 
   devServer: {
