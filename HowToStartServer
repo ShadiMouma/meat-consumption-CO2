@@ -1,0 +1,18 @@
+// 1 open Terminal and write npm i
+// 2 write npm run build:prod
+// 3 npm run build
+// 4 npm run server
+
+
+// Explanation
+The server runs on Node.js, the file ./server/server.ts is where we have our backend server routes
+and from where we can call and get data back.
+
+server.ts is being bundled by webpack , the configs are in webpack.server.config.js
+
+// Front end
+app.js in the main file that imorts all our needed scripts on the front end and all our styles (scss)
+webpack bundles everything together and builds the public folder where we will have our end compressed minified results.
+
+app.js bundling configs are in ./webpack.config.js
+
