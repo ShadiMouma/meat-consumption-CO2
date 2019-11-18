@@ -16,6 +16,9 @@ const PATHS = { src: path.join(__dirname, 'src') };
 const { CheckerPlugin } = require('awesome-typescript-loader');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
+const magicImporter = require( 'node-sass-magic-importer' );
+
+
 
 module.exports = {
   target: 'web',
@@ -46,6 +49,9 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
        { from: 'src/img', to: './img' }
+    ]),
+    new CopyWebpackPlugin([
+      { from: 'src/world.html', to: './world.html' }
     ]),
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new PurgecssPlugin({
@@ -87,9 +93,8 @@ module.exports = {
         use  : [
           { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader', options : { importLoaders : 1 } },
-          { loader: 'sass-loader' },
-          'postcss-loader'
-        ],
+          { loader: 'sass-loader' }
+          ],
       },
     ]
   },
