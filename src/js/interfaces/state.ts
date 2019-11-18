@@ -1,5 +1,5 @@
-import Meat from "../models/Meat";
+import Main from '../models/Main'
 
 export default interface state {
-    meat?: Meat
+    main?: Main
 }
