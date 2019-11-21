@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'path';
-import Main from '../js/models/Main'
+import World from '../js/models/World'
 
 
 const app = express(),
@@ -9,10 +9,10 @@ const app = express(),
     HTML_WORLD = path.join(DIST_DIR, 'world.html');
 
 const port = process.env.port || 8080;
-const main: Main = new Main();
+const main: World = new World();
 
 
-app.use(express.json());
+// app.use(express.json());
 app.use(express.static(DIST_DIR));
 
 

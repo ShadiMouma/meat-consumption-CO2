@@ -24,23 +24,28 @@ module.exports = {
   target: 'web',
   entry:  {
     main: [ "@babel/polyfill" , "./src/app.ts" ],
+    test: './src/js/test/test.ts'
   },
   output       : {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'public/dist')
   },
-
   optimization: {
       minimize: true,
-      minimizer: [ new TerserPlugin() ],
+      minimizer: [ new TerserPlugin() ]
   },
 
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
+      filename: "world.html",
+      template: "./src/world.html",
+      excludeChunks: [ 'server' , 'test' ]
+    }),
+    new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./src/index.html",
-      excludeChunks: [ 'server' ]
+      excludeChunks: [ 'server' , 'test' ]
     }),
     new MiniCssExtractPlugin({
       filename: './css/style.css',
@@ -49,9 +54,6 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
        { from: 'src/img', to: './img' }
-    ]),
-    new CopyWebpackPlugin([
-      { from: 'src/world.html', to: './world.html' }
     ]),
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new PurgecssPlugin({
