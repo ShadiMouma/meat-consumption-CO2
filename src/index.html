@@ -6,15 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
     <title>World of CO2</title>
 </head>
 
 <body>
+    <nav class="nav-main">
+        <a class="nav-logo" href="/">G.A.M.S</a>
+        <div class="d-flex">
+            <a class="nav-item" href="/">Home</a>
+            <a class="nav-item" href="/world">World map</a>
+            <a class="nav-item" href="/about">About</a>
+            <a class="nav-item" href="/api/countries">Get in touch</a>
+        </div>
+    </nav>
+
     <main class="main">
-        <section class="mapper">
-            <div class="map-wrapper">
-                <div id="container" class="map-container"></div>
+        <section class="landing-page d-flex">
+            <div class="land land-left d-flex flex-align-center bg-secondary">
+                <h1 class="landing-header">WELCOME ON EARTH</h1>
+            </div>
+
+            <div class="land land-right d-flex flex-align-center">
+                <p class="landing-paragraph">
+                    This is our overview for the CO2 world emissions. Here we display all CO2 emissions of
+                    every country in the world. We also present the electricity consumption in all countries.
+                </p>
             </div>
         </section>
     </main>
